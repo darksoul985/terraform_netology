@@ -46,3 +46,12 @@
 ![[Pasted image 20260421105146.png]]
 
 # Задание 2
+В задаче сделал создание ресурсов с помощью terraform. И даже сделал подключение провайдера докер удаленное, но terraform apply падает с ошибкой 
+```shell
+│ Error: Unable to read Docker image into resource: unable to list Docker images: Error response from daemon: client version 1.41 is too old. Minimum supported API version is 1.44, please upgrade your client to a newer version
+│
+│   with docker_image.mysql_8,
+│   on docker.tf line 20, in resource "docker_image" "mysql_8":
+│   20: resource "docker_image" "mysql_8" {
+```
+И победить это не смог. Подозреваю что провайдер docker использует старую версию API, а как поднять более новую не знаю.
