@@ -46,7 +46,7 @@
 ![keep_locally](20260421105146.png)
 
 # Задание 2
-В задаче сделал создание ресурсов с помощью terraform. И даже сделал подключение провайдера докер удаленное, но terraform apply падает с ошибкой 
+В задаче сделал создание ресурсов с помощью terraform в папке hw_2. И даже сделал подключение провайдера докер удаленное, но terraform apply падает с ошибкой 
 ```shell
 │ Error: Unable to read Docker image into resource: unable to list Docker images: Error response from daemon: client version 1.41 is too old. Minimum supported API version is 1.44, please upgrade your client to a newer version
 │
