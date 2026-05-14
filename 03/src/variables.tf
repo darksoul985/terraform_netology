@@ -30,3 +30,71 @@ variable "vpc_name" {
   default     = "develop"
   description = "VPC network&subnet name"
 }
+
+variable "vpc_resources" {
+  type = map(object({
+    cores         = number,
+    memory        = number,
+    core_fraction = number,
+    hdd_size      = number,
+    hdd_type      = string,
+  }))
+  default = {
+    web = {
+      cores         = 2,
+      memory        = 1,
+      core_fraction = 5,
+      hdd_size      = 10,
+      hdd_type      = "network-hdd",
+    }
+  }
+}
+
+variable "web_os_image" {
+  type        = string
+  default     = "ubuntu-2004-lts"
+  description = "image OS"
+}
+
+
+variable "main_vm" {
+  type    = set(string)
+  default = ["main", "replica"]
+}
+
+variable "each_vm" {
+  type = list(object(
+    {
+      vm_name     = string,
+      cpu         = number,
+      ram         = number,
+      disk_volume = number
+  }))
+  default = [
+    {
+      vm_name     = "main",
+      cpu         = 4,
+      ram         = 6,
+      disk_volume = 10
+    },
+    {
+      vm_name     = "replica",
+      cpu         = 2,
+      ram         = 2,
+      disk_volume = 15
+    }
+  ]
+}
+
+variable "disk_storage" {
+  type = map(any)
+  default = {
+    type = "network-hdd",
+    size = 1,
+  }
+}
+
+variable "ssh_private_key_path" {
+  type    = string
+  default = "~/.ssh/id_rsa"
+}
