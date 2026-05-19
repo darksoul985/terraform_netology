@@ -12,4 +12,4 @@
 personal.auto.tfvars
 pyproject/*
   
-pyproject/Dockerfile
+!pyproject/Dockerfile
