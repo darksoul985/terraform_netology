@@ -8,7 +8,5 @@
 *.tfstate
 *.tfstate.*
 
-# own secret vars store.
+# own secret vars store
 personal.auto.tfvars
-
-.obsidian/
