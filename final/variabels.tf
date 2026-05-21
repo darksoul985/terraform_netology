@@ -46,7 +46,7 @@ variable "count_vm" {
 
 variable "web_os_image" {
   type        = string
-  default     = "ubuntu-2404-lts"
+  default     = "container-optimized-image"
   description = "image OS"
 }
 
@@ -64,14 +64,18 @@ variable "vpc_resources" {
       cores         = 2,
       memory        = 1,
       core_fraction = 5,
-      hdd_size      = 10,
+      hdd_size      = 15,
       hdd_type      = "network-hdd",
       preemptible   = true,
     }
   }
 }
 
-
+# ssh-keys
+variable "ssh_user" {
+  type = string
+  default = "main-user"
+}
 
 # security groups
 variable "security_group_ingress" {
@@ -165,6 +169,6 @@ variable "db_size" {
 # containers
 variable "registry_name" {
   type        = string
-  default     = "container-registry"
+  default     = "final-project-registry"
   description = "имя репозитория контейнеров"
 }
